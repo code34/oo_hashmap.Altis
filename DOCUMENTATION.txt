@@ -25,9 +25,8 @@
 
 
 /*
-	Function: _hashmap = ["new"] call OO_HASHMAP;
+	Function: _hashmap = ["new", []] call OO_HASHMAP;
 	Create a new hasmap
-	
 */
 
 
