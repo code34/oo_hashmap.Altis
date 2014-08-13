@@ -25,25 +25,30 @@
 		PRIVATE VARIABLE("array","map");
 
 		PUBLIC FUNCTION("array","constructor") {
-			MEMBER("index", nil) = [];
-			MEMBER("map", nil) = [];
+			private ["_array"];
+			_array = [];
+			MEMBER("index", _array);
+			MEMBER("map", _array);
 		};
 
 		// Removes all of the mappings from this map.
 		PUBLIC FUNCTION("array", "Clear") {
-			MEMBER("index", nil) = [];
-			MEMBER("map", nil) = [];
-		};
+			private ["_array"];
+			_array = [];
+			MEMBER("index", _array);
+			MEMBER("map", _array);
+		};		
+
 
 		// Returns true if this map contains a mapping for the specified key.
-		PUBLIC FUNCTION("array", containsKey) {
+		PUBLIC FUNCTION("array", "containsKey") {
 			private ["_return", "_key"];
 
 			_key = _this select 0;
-			_return = _false;
+			_return = false;
 
 			{
-				if(_key == _x) then {
+				if(format["%1", _key] == format["%1", _x]) then {
 					_return = true;
 				};
 			}foreach MEMBER("index", nil);
@@ -52,14 +57,14 @@
 		};
 
 		// Returns true if this map maps one or more keys to the specified value.
-		PUBLIC FUNCTION("array", containsValue) {
+		PUBLIC FUNCTION("array", "containsValue") {
 			private ["_return", "_value"];
 
 			_value = _this select 0;
-			_return = _false;
+			_return = false;
 
 			{
-				if(_value == _x) then {
+				if(format["%1", _value] == format["%1", _x]) then {
 					_return = true;
 				};
 			}foreach MEMBER("map", nil);
@@ -71,83 +76,104 @@
 		// Returns a Set view of the mappings contained in this map.
 		PUBLIC FUNCTION("","entrySet") FUNC_GETVAR("map");
 
+
+
 		// Returns the value to which the specified key is mapped, or null if this map contains no mapping for the key.
 		PUBLIC FUNCTION("array", "Get") {
 			private ["_key", "_index", "_map", "_return"];
 
-			_key = _this select 0;
-		
+			_key = _this;
+
 			_index = MEMBER("SearchIndex", _key);
-			if(index == -1) then {
-				_return = null;
+			if(_index == -1) then {
+				_return = "null";
 			} else {
 				_return = MEMBER("map", nil) select _index;
 			};
 			_return;
 		};
 
-		// Returns true if this map contains no key-value mappings.
-		PUBLIC FUNCTION("array", "IsEmpty") {
-			if(count MEMBER("index", nil) == 0) then { true; } else { false };
+		// Set the value to which the specified key is mapped, or null if this map contains no mapping for the key.
+		PUBLIC FUNCTION("array", "Set") {
+			private ["_key", "_index", "_value"];
+
+			_key = [_this select 0];
+			_value = _this select 1;
+
+			_index = MEMBER("SearchIndex", _key);				
+			MEMBER("map", nil) set [_index, _value];
 		};
 
+		// Returns true if this map contains no key-value mappings.
+		PUBLIC FUNCTION("", "IsEmpty") {
+			if(count MEMBER("index", nil) == 0) then { true; } else { false };
+		};
 
 		//Returns a Set view of the keys contained in this map.
 		PUBLIC FUNCTION("","keySet") FUNC_GETVAR("index");
 
 		// Associates the specified value with the specified key in this map.
 		PUBLIC FUNCTION("array", "Put") {
-			_key = _this select 0;
-			_value = _this select 1;
+			private ["_index", "_key", "_map", "_value"];
 
-			if(isnil _key) exitwith {false};
+			_key = [_this select 0];
+			_value = [_this select 1];
 
-			MEMBER("index", nil) = MEMBER("index", nil) + [_key];
-			MEMBER("map", nil) = MEMBER("map", nil) + [_value];
+			if(count _key == 0) exitwith {false};
+			_index = MEMBER("index", nil) + _key;
+			_map = MEMBER("map", nil) + _value;
+
+			MEMBER("index", _index);
+			MEMBER("map", _map);
 		};
 
 		// Copies all of the mappings from the specified map to this map.
 		PUBLIC FUNCTION("array", "PutAll") {	
-			private ["_return", "_extmap"];
+			private ["_return", "_extmap", "_index", "_map"];
+
 			_extmap = _this select 0;
 			
 			_return = true;
 			{
 				if(MEMBER("containsKey", _x)) then {
-					_return = _false;
+					_return = false;
 				};
 			}foreach ("keySet" call _extmap);
 
 			if(_return) then {
-				MEMBER("index", nil) = MEMBER("index", nil) + ("keySet" call _extmap);
-				MEMBER("map", nil) = MEMBER("map", nil) + ("entrySet" call _extmap);
+				_index = MEMBER("index", nil) + ("keySet" call _extmap);
+				_map = MEMBER("map", nil) + ("entrySet" call _extmap);
+				MEMBER("index", _index);
+				MEMBER("index", _map);
 			};
 			_return;
 		};
 
 		// Removes the mapping for the specified key from this map if present.
 		PUBLIC FUNCTION("array", "Remove") {
-			private ["_key", "_index", "_map"];
+			private ["_index", "_map"];
 
-			_key = _this select 0;
-		
-			_index = MEMBER("SearchIndex", _key);
+			if(isnil "_this") exitwith {false};
+
+			_index = MEMBER("SearchIndex", _this);
 						
 			MEMBER("index", nil) set [_index, "hasmapdeletedobject"];
 			MEMBER("map", nil) set [_index, "hasmapdeletedobject"];
 
-			MEMBER("index", nil) =  MEMBER("index", nil) - ["hasmapdeletedobject"];
-			MEMBER("map", nil) =  MEMBER("map", nil) - ["hasmapdeletedobject"];
+			_index =  MEMBER("index", nil) - ["hasmapdeletedobject"];
+			_map =  MEMBER("map", nil) - ["hasmapdeletedobject"];
+
+			MEMBER("index", _index);
+			MEMBER("map", _map);			
 		};
 
 		// Returns the number of key-value mappings in this map
-		PUBLIC FUNCTION("array", "Size") {
-			private ["_count"];
-
-			_count = count MEMBER("index", nil);
-			_count;
+		PUBLIC FUNCTION("", "Size") {
+			count MEMBER("index", nil);
 		};
 
+
+		// search index of the array for a specific key
 		PUBLIC FUNCTION("array", "SearchIndex") {
 			private ["_i", "_index", "_key"];
 			
@@ -157,7 +183,7 @@
 			_i = 0;
 
 			{
-				if(_value == _x) then {
+				if(format["%1", _key] == format["%1", _x]) then {
 					_index = _i;
 				};
 				_i = _i + 1;
