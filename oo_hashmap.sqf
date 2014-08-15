@@ -48,9 +48,12 @@
 			_return = false;
 
 			{
+				scopename "oo_hashmap_key";
 				if(format["%1", _key] == format["%1", _x]) then {
 					_return = true;
+					breakout "oo_hashmap_key";
 				};
+				sleep 0.000000001;
 			}foreach MEMBER("index", nil);
 
 			_return;
@@ -64,9 +67,12 @@
 			_return = false;
 
 			{
+				scopename "oo_hashmap_value";
 				if(format["%1", _value] == format["%1", _x]) then {
 					_return = true;
+					breakout "oo_hashmap_value";
 				};
+				sleep 0.000000001;
 			}foreach MEMBER("map", nil);
 
 			_return;
@@ -138,6 +144,7 @@
 				if(MEMBER("containsKey", _x)) then {
 					_return = false;
 				};
+				sleep 0.000000001;
 			}foreach ("keySet" call _extmap);
 
 			if(_return) then {
@@ -183,10 +190,13 @@
 			_i = 0;
 
 			{
+				scopename "oo_hashmap_search";
 				if(format["%1", _key] == format["%1", _x]) then {
 					_index = _i;
+					breakout "oo_hashmap_search";
 				};
 				_i = _i + 1;
+				sleep 0.000000001;
 			}foreach MEMBER("index", nil);
 			_index;
 		};
