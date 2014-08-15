@@ -32,7 +32,7 @@
 		};
 
 		// Removes all of the mappings from this map.
-		PUBLIC FUNCTION("array", "Clear") {
+		PUBLIC FUNCTION("", "Clear") {
 			private ["_array"];
 			_array = [];
 			MEMBER("index", _array);
