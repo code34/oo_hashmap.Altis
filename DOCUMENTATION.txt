@@ -22,16 +22,74 @@
 	*/
 
 
-
+/*
+	check the interface reference webpage:
+	http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html
+*/
 
 /*
 	Function: _hashmap = ["new", []] call OO_HASHMAP;
-	Create a new hasmap
+	Create a new hasmap object
+
 */
 
+/*
+	Function : ["Put", [key, value]] call _hashmap;
+	Associates the specified value with the specified key in this map.
+*/
 
+/*
+	Function : _return = ["containsKey", key] call _hashmap;
+	Returns true if this map contains a mapping for the specified key.
+	Key must be an array
+*/
 
+/*
+	Function: _return = ["containsValue", value] call _hashmap;
+	Returns true if this map maps one or more keys to the specified value.
+	Value must be an array
+*/
 
+/*
+	Function: _return = "entrySet" call _hashmap;
+	Returns a Set view of the mappings contained in this map.
+*/
 
+/*
+	Function: _return = ["Get", key] call _hashmap;
+	Returns the value to which the specified key is mapped, or "null" if this map contains no mapping for the key.
+	Key must be an array
+*/
+
+/*
+	Function: _return = "IsEmpty" call _hashmap;
+	Returns true if this map contains no key-value mappings.
+*/
+
+/*
+	Function: _return = "keySet" call _hashmap;
+	Returns a Set view of the keys contained in this map.
+*/
+
+/*
+	Function: _return = "Size" call _hashmap;
+	Returns the number of key-value mappings in this map.
+*/
+
+/*
+	Function: ["Set", [key, value]] call _hashmap;
+	Set an existing key with value
+*/
+
+/*
+	Function: ["Remove", key] call _hashmap;
+	Removes the mapping for the specified key from this map if present.
+	Key must be an array
+*/
+
+/*
+	Function: "clear" call _hashmap;
+	Removes all of the mappings from this map.
+*/
 
 
