@@ -37,7 +37,7 @@
 		0.2 - OO HASHMAP
 			- add documentation
 			- add performance improvements
-			- fix clear procedure
+			- fix clear function
 		0.1 - OO HASHMAP - first release
 
 
