@@ -34,6 +34,13 @@
 	You can share, modify, distribute this script but don't remove the licence and the name of the original author
 
 	logs:
+		0.3 - OO HASHMAP
+			- use key string now
+			- use missionnamespace instead entryset array
+			- remove useless code
+			- fix test init code & add some use cases
+			- fix function names typo
+			- remove slow searchindex function
 		0.2 - OO HASHMAP
 			- add documentation
 			- add performance improvements
