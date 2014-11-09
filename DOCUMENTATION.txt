@@ -36,13 +36,13 @@
 /*
 	Function : ["put", [key, value]] call _hashmap;
 	Associates the specified value with the specified key in this map.
-	@Key is a string
+	@key is a string
 */
 
 /*
 	Function : _return = ["containsKey", key] call _hashmap;
 	Returns true if this map contains a mapping for the specified key.
-	@Key is a string
+	@key is a string
 */
 
 /*
@@ -53,13 +53,13 @@
 
 /*
 	Function: _return = "entrySet" call _hashmap;
-	Returns a Set view of the mappings contained in this map.
+	Returns all elements contains in map
 */
 
 /*
 	Function: _return = ["get", key] call _hashmap;
 	Returns the value to which the specified key is mapped, or "null" if this map contains no mapping for the key.
-	@Key is a string
+	@key is a string
 */
 
 /*
@@ -69,7 +69,7 @@
 
 /*
 	Function: _return = "keySet" call _hashmap;
-	Returns a Set view of the keys contained in this map.
+	Returns all keys contains in map
 */
 
 /*
@@ -80,7 +80,7 @@
 /*
 	Function: ["remove", key] call _hashmap;
 	Removes the mapping for the specified key from this map if present.
-	@Key is a string
+	@key is a string
 */
 
 /*
