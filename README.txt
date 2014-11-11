@@ -34,6 +34,8 @@
 	You can share, modify, distribute this script but don't remove the licence and the name of the original author
 
 	logs:
+		0.31 - OO HASHMAP
+			- hotfix - multipe instance hashmap - instanceid
 		0.3 - OO HASHMAP
 			- use key string now
 			- use missionnamespace instead entryset array
