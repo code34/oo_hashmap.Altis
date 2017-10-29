@@ -1,6 +1,6 @@
 	/*
 	Author: code34 nicolas_boiteux@yahoo.fr
-	Copyright (C) 2014 Nicolas BOITEUX
+	Copyright (C) 2014-2018 Nicolas BOITEUX
 
 	CLASS OO_HASMAP OBJECT
 
@@ -34,6 +34,7 @@
 	You can share, modify, distribute this script but don't remove the licence and the name of the original author
 
 	logs:
+		0.50 - fix private keywords
 		0.40 - improve perfomance with native array 	
 		0.31 - OO HASHMAP
 			- hotfix - multipe instance hashmap - instanceid
