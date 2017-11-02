@@ -1,9 +1,11 @@
 
-		call compilefinal preprocessFileLineNumbers "oo_hashmap.sqf";
+		call compile preprocessFileLineNumbers "oo_hashmap.sqf";	
 		
-		private ["_map", "_return"];
+		sleep 1;
 
-		_map = ["new", []] call OO_HASHMAP;
+		private _return = "";
+		private _map = ["new", []] call OO_HASHMAP;
+
 	
 		_return = "isEmpty" call _map;
 		hint format["isempty %1 (should return true)", _return];
