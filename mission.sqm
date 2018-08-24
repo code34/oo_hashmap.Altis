@@ -1,17 +1,70 @@
-version=12;
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=8;
+	};
+	class Camera
+	{
+		pos[]={14722.173,42.91,16675.49};
+		dir[]={-1.2363449e-007,-0.70710683,0.70710683};
+		up[]={-1.2363449e-007,0.70710683,0.70710683};
+		aside[]={1.0000001,0,1.7484558e-007};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"A3_Characters_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=1;
+		class Item0
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=3637741;
+class ScenarioData
+{
+	author="Code34";
+};
+class Intro
+{
+	class Intel
+	{
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.013;
+		forecastFogDecay=0.013;
+	};
+};
 class Mission
 {
-	addOns[]=
-	{
-		"a3_map_altis",
-		"A3_Characters_F_BLUFOR"
-	};
-	addOnsAuto[]=
-	{
-		"A3_Characters_F_BLUFOR",
-		"a3_map_altis"
-	};
-	randomSeed=16186739;
 	class Intel
 	{
 		briefingName="OO HASHMAP";
@@ -31,40 +84,45 @@ class Mission
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
 	};
-	class Groups
+	class Entities
 	{
 		items=1;
 		class Item0
 		{
-			side="WEST";
-			class Vehicles
+			dataType="Group";
+			side="West";
+			class Entities
 			{
 				items=1;
 				class Item0
 				{
-					position[]={8941.6387,68.483162,11868.508};
-					id=0;
-					side="WEST";
-					vehicle="B_Soldier_F";
-					player="PLAY CDG";
-					leader=1;
-					skill=0.60000002;
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8941.6387,68.48246,11868.607};
+						angles[]={0.042640556,0,6.2605205};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						isPlayable=1;
+					};
+					id=7;
+					type="B_Soldier_F";
 				};
 			};
+			class Attributes
+			{
+			};
+			id=6;
+			atlOffset=185.97;
 		};
 	};
 };
-class Intro
+class OutroLoose
 {
-	addOns[]=
-	{
-		"a3_map_altis"
-	};
-	addOnsAuto[]=
-	{
-		"a3_map_altis"
-	};
-	randomSeed=10397676;
 	class Intel
 	{
 		timeOfChanges=1800.0002;
@@ -86,45 +144,6 @@ class Intro
 };
 class OutroWin
 {
-	addOns[]=
-	{
-		"a3_map_altis"
-	};
-	addOnsAuto[]=
-	{
-		"a3_map_altis"
-	};
-	randomSeed=12024153;
-	class Intel
-	{
-		timeOfChanges=1800.0002;
-		startWeather=0.30000001;
-		startWind=0.1;
-		startWaves=0.1;
-		forecastWeather=0.30000001;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
-		year=2035;
-		month=6;
-		day=24;
-		hour=12;
-		minute=0;
-		startFogDecay=0.013;
-		forecastFogDecay=0.013;
-	};
-};
-class OutroLoose
-{
-	addOns[]=
-	{
-		"a3_map_altis"
-	};
-	addOnsAuto[]=
-	{
-		"a3_map_altis"
-	};
-	randomSeed=10614587;
 	class Intel
 	{
 		timeOfChanges=1800.0002;
